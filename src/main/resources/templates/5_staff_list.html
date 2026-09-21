@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<!--Talha Arif - r1066207-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Staff List</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+</head>
+<body>
+<h2>Our staff:</h2>
+<ul>
+    <li th:each="s : ${staffList}" th:text="${s}"></li>
+</ul>
+
+<a href="/index">Back to home</a>
+</body>
+</html>

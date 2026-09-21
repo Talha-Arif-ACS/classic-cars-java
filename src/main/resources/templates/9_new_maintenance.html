@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--Talha Arif - r1066207-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>New Maintenance</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+</head>
+<body>
+<h2>New maintenance</h2>
+
+<form action="/createMaintenance" method="post">
+    <label>Type of maintenance: <input type="text" name="type"></label>
+    <br><br>
+
+    <label>Duration (in minutes):
+        <input type="number" name="duration" min="1" max="600" step="1" value="60">
+    </label>
+    <br><br>
+
+    <label>Hourly rate: <span id="rateVal">20</span><br>
+        <input type="range" name="hourlyRate" min="10" max="100" step="1" value="20"
+               oninput="document.getElementById('rateVal').textContent=this.value">
+    </label>
+    <br><br>
+
+    <label>For which car?
+        <select name="carIndex">
+            <option value="-1">For which car?</option>
+            <option th:each="car,iter : ${cars}"
+                    th:value="${iter.index}"
+                    th:text="${car.getName()}">
+            </option>
+        </select>
+    </label>
+    <br><br>
+
+    <label>Who is responsible for this maintenance?
+        <select name="staffIndex">
+            <option value="-1">Who is responsible for this maintenance?</option>
+            <option th:each="s,iter : ${staffList}"
+                    th:value="${iter.index}"
+                    th:text="${s.getFirstName() + ' ' + s.getSurName()}">
+            </option>
+        </select>
+    </label>
+    <br><br>
+
+    <button type="submit">Confirm maintenance</button>
+</form>
+
+<br><a href="/index">Back to home</a>
+</body>
+</html>

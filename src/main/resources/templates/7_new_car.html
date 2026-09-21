@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!--Talha Arif - r1066207-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>New Car</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+</head>
+<body>
+<h1>New Car</h1>
+
+<form action="/createCar" method="post">
+    <label>Name car: <input type="text" name="brand"></label>
+    <br>
+    <label>Type of car: <input type="text" name="type"></label>
+    <br>
+    <label>Select kilometers (0 - 200,000):
+        <input type="number" id="kilometers" name="kilometers"
+               min="0" max="200000" step="1" value="0">
+    </label><br><br>
+    <label>Photo: <input type="text" name="photo"></label>
+    <br>
+
+    <button type="submit">Confirm new car</button>
+</form>
+
+<br><a href="/index">Back to home page</a>
+</body>
+</html>

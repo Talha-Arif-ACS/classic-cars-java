@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!--Talha Arif - r1066207-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>New Owner</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+</head>
+<body>
+<h1>Register New Owner</h1>
+
+<form action="/createOwner" method="post">
+    <label>First name: <input type="text" name="firstName"></label>
+    <br><br>
+    <label>Surname: <input type="text" name="surName"></label>
+    <br><br>
+    <label>Year of birth: <input type="text" name="yearOfBirth"></label>
+    <br><br>
+
+    <label>Select car:
+        <select name="carIndex">
+            <option value="-1">None</option>
+            <option th:each="car,iter : ${cars}"
+                    th:value="${iter.index}"
+                    th:text="${car.getName()}">
+            </option>
+        </select>
+    </label>
+    <br><br>
+
+    <button type="submit">Continue and generate car code</button>
+</form>
+
+<br><a href="/index">Back to home page</a>
+</body>
+</html>

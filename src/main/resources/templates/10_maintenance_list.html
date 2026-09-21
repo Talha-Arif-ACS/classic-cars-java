@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--Talha Arif - r1066207-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Maintenance List</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+</head>
+<body>
+<h2 th:text="'Maintenances done to ' + ${car.getName()}"></h2>
+
+<div style="display:flex; gap:40px;">
+    <div>
+        <p>Car details:</p>
+        <ul>
+            <li th:text="'Brand: ' + ${car.getBrand()}"></li>
+            <li th:text="'Type: ' + ${car.getType()}"></li>
+            <li th:text="'Kilometers: ' + ${car.getKilometers()}"></li>
+        </ul>
+    </div>
+    <div>
+        <img onerror="this.src='img/noimage.jpg'"
+             th:src="@{${car.getPhoto()}}"/>
+    </div>
+</div>
+
+<ol>
+    <li th:each="m : ${car.getMaintenances()}">
+        <strong th:text="${m.getType()}"></strong>
+        - responsible: <span th:text="${m.getResponsible() != null ? m.getResponsible().getFirstName() + ' ' + m.getResponsible().getSurName() : 'Not assigned'}"></span><br>
+        Duration: <span th:text="${m.getDuration()}"></span> minutes<br>
+        Hourly rate: <span th:text="${m.getHourlyRate()}"></span>
+    </li>
+</ol>
+
+<a href="/index">Back to home</a>
+</body>
+</html>

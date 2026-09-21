@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--Talha Arif - r1066207-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Classic cars start</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+
+</head>
+<body>
+
+    <h1>Classic Cars Garage</h1>
+    <p>by Talha Arif</p>
+
+    <h2>Owners</h2>
+    <a href="/newOwner">New owner</a><br>
+    <a href="/ownerList">List of owners</a>
+
+    <h2>Staff</h2>
+    <a href="/newStaff">New staff member</a><br>
+    <a href="/staffList">List of staff members</a>
+
+    <h2>Cars</h2>
+    <a href="/newCar">New car</a><br>
+    <a href="/carList">List of cars</a>
+
+    <h2>Maintenance</h2>
+    <a href="/newMaintenance">New maintenance</a>
+
+    <h2>Search</h2>
+    <form action="/searchMaintenance" method="post">
+        <input type="text" name="searchType" placeholder="Enter maintenance type">
+        <br>
+        <button type="submit">Search maintenances</button>
+    </form>
+
+</body>
+</html>
